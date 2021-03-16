@@ -1,0 +1,16 @@
+static int migratoryBirds(List<Integer> arr) {
+        int[] freq = new int[5];
+        for(int i=0;i<arr.size();i++){
+            int getVal=arr.get(i);
+            freq[getVal-1]++;
+        }
+        int index=1;
+        int minCount=freq[index-1];
+        for(int i=1;i<5;i++){
+            if(freq[i]>minCount){
+                minCount=freq[i];
+                index=i+1;
+            }
+        }
+        return index;
+    }
