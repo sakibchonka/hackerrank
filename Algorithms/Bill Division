@@ -1,0 +1,13 @@
+static void bonAppetit(List<Integer> bill, int k, int b) {
+        int totalBill = sum(bill);
+        int declinedItem = bill.get(k);
+        int actualBill = (totalBill-declinedItem)/2;
+        if(actualBill==b)
+            System.out.println("Bon Appetit");
+        else
+            System.out.println(b-actualBill);
+    }
+    public static int sum(List<Integer> list) 
+    { 
+        return list.stream().mapToInt(i -> i).sum(); 
+    } 
