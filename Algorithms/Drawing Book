@@ -1,0 +1,9 @@
+static int pageCount(int n, int p) {
+        /*
+         * Write your code here.
+         */
+         int totalTurns=n/2;
+         int turnFromLeft=p/2;
+         int turnFromRight=totalTurns-turnFromLeft;
+         return Math.min(turnFromLeft,turnFromRight);
+    }
