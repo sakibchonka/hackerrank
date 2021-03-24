@@ -1,0 +1,12 @@
+static int designerPdfViewer(int[] h, String word) {
+        char[] alphabets = word.toCharArray();
+        int max = 1;
+        for(int i=0;i<alphabets.length;i++){
+            int index = (int)(alphabets[i]-97);
+            int val = h[index];
+            if(val>max)
+                max=val;
+        }
+        int result=max*alphabets.length;
+        return result;
+    }
