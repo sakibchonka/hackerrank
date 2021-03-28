@@ -1,0 +1,18 @@
+static int reverse(int num){
+        int x=0;
+        while(num>0){
+            x = 10*x + num%10;
+            num=num/10;
+        }
+        return x;
+    }
+    static int beautifulDays(int i, int j, int k) {
+        int count=0;
+        for(int number = i; number<j+1;number++){
+            int rev = reverse(number);
+            int sub = Math.abs(number-rev);
+            if(sub%k==0)
+                count++;
+        }
+        return count;
+    }
