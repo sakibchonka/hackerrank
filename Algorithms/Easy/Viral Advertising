@@ -1,0 +1,13 @@
+static int viralAdvertising(int n) {
+        int shared=5;
+        int liked=shared/2;
+        int cumsum=liked;
+        if(n==1)
+            return 2;
+        for(int i=0;i<n-1;i++){
+            shared=liked*3;
+            liked=shared/2;
+            cumsum+=liked;
+        }
+        return cumsum;
+    }
