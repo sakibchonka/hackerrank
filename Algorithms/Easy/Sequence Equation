@@ -1,0 +1,21 @@
+static int[] permutationEquation(int[] p) {
+        int n = p.length;
+        int res[] = new int[n];
+        for(int i=1;i<=n;i++){
+            int pos=0;
+            for(int j=0;j<n;j++){
+                if(p[j]==i){
+                    pos=j+1;
+                    break;
+                }
+            }
+            for(int j=0;j<n;j++){
+                if(p[j]==pos){
+                    res[i-1]=j+1;
+                    break;
+                }
+            }
+        }
+        return res;
+
+    }
