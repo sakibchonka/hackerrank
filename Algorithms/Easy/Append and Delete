@@ -1,0 +1,17 @@
+static String appendAndDelete(String s, String t, int k) {
+        if((s.length()+t.length())<k)
+            return "Yes";
+        int common=0;
+        for(int i=0;i<Math.min(s.length(),t.length());i++){
+            if(s.charAt(i)==t.charAt(i))
+                common++;
+            else
+                break;
+        }
+        int val = k-s.length()-t.length()+2*common;
+        if(val<0)
+            return "No";
+        if(val%2==0)
+            return "Yes";
+        return "No";
+    }
