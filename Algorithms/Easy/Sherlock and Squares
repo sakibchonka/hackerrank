@@ -1,0 +1,12 @@
+static int squares(int a, int b) {
+        int count=0;
+        while(Math.sqrt(a)!=(int)Math.sqrt(a)){
+            a++;
+        }
+        int squareRoot = (int)Math.sqrt(a);
+        while(Math.pow(squareRoot,2)<=b){
+            count++;
+            squareRoot++;
+        }
+        return count;
+    }
