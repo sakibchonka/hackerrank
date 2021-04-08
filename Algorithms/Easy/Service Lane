@@ -1,0 +1,14 @@
+static int[] serviceLane(int n, int[][] cases, int[] width) {
+         int[] res = new int[cases.length];
+         for(int i=0;i<cases.length;i++){
+            int s = cases[i][0];
+            int l = cases[i][1];
+            int min=width[s];
+            for(int j=s+1;j<=l;j++){
+                if(width[j]<min)
+                    min=width[j];
+            }
+            res[i] = min;
+         }
+         return res;
+    }
