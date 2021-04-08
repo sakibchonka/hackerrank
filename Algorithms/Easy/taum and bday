@@ -1,0 +1,6 @@
+public static long taumBday(int b, int w, int bc, int wc, int z) {
+    // Write your code here
+        long minB = (bc>(wc+z))?(wc+z):bc;
+        long minW = (wc>(bc+z))?(bc+z):wc;
+        return minB*b+minW*w;
+    }
