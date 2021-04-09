@@ -1,0 +1,43 @@
+static int findDigits(BigInteger n){
+        int count=0;
+        BigInteger div = new BigInteger("10");
+        BigInteger zero = new BigInteger("0");
+        while(n.compareTo(zero)==1){
+            n = n.divide(div);
+            count++;
+        }
+        return count;
+    }
+    static void kaprekarNumbers(int p, int q) {
+        int mark=0;
+        for(int i=p;i<=q;i++){
+            BigInteger bg = BigInteger.valueOf(i);
+            BigInteger bg1 = bg.pow(2);
+            int d=findDigits(bg1);
+            String s = String.valueOf(bg1);
+            int l = d/2; 
+            int r = d-l; 
+            String s1;
+            String s2;
+            if(s.length()==1){
+                String str = s.substring(0,1);
+                int z = Integer.parseInt(str);
+                if(i == (z*z)){
+                    mark=1;
+                    System.out.print(i+" ");
+                }
+                continue;                
+            }else{
+                s1 = s.substring(0,l);
+                s2 = s.substring(l,d);
+            }
+            int x = Integer.parseInt(s1);
+            int y = Integer.parseInt(s2);
+            if(x+y == i){
+                mark=1;
+                System.out.print(i+" ");
+            }
+        }
+        if(mark==0){
+            System.out.println("INVALID RANGE");
+        }
