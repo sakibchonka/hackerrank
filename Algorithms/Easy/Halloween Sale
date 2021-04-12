@@ -1,0 +1,13 @@
+static int howManyGames(int p, int d, int m, int s) {
+        // Return the number of games you can buy
+        int games=0;
+        while(s>=p){
+            s=s-p;
+            if((p-d)<=m)
+                p=m;
+            if((p-d)>m)
+                p=p-d;
+            games++;
+        }
+        return games;      
+    }
