@@ -1,0 +1,12 @@
+static int minimumDistances(int[] a) {
+        int min=1;
+        while(min<a.length){
+            for(int i=0;i<a.length-min;i++){
+                if(a[i+min]==a[i]){
+                    return min;
+                }
+            }
+            min++;
+        }
+        return -1;
+    }
