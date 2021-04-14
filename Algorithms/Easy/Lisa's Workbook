@@ -1,0 +1,18 @@
+static int workbook(int n, int k, int[] arr) {
+        int page=1;
+        int count=0;
+        for(int i=0;i<n;i++){
+            int problems = arr[i];
+            int ch=1;
+            while(ch<=problems){
+                for(int j=ch;j<ch+k && j<=problems;j++){
+                    if(j==page)
+                        count++;
+                }
+                ch=ch+k;
+                page++;
+            }
+        }
+        return count;
+
+    }
