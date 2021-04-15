@@ -1,0 +1,26 @@
+static int flatlandSpaceStations(int n, int[] c) {
+        int cities[]=new int[n];
+        int count=0;
+        for(int i=0;i<c.length;i++){
+            cities[c[i]]=n;
+            count++;
+        }
+        if(count==n)
+            return 0;
+        List<Integer> arr = new ArrayList<>();
+        for(int i=0;i<n;i++){
+            if(cities[i]==n){
+                arr.add(i);
+            }
+        }
+        int start=arr.get(0);
+        int end = arr.get(arr.size()-1);
+        int max=0;
+        for(int i=0;i<arr.size()-1;i++){
+            int cal=Math.abs(arr.get(i)-arr.get(i+1))/2;
+            max=Math.max(cal,max);
+        }
+        max=Math.max(start-0,max);
+        max=Math.max((n-1)-end,max);
+        return max;
+    }
