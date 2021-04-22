@@ -1,0 +1,47 @@
+static String happyLadybugs(String b) {
+        Map<Character,Integer> map = new HashMap<>();
+        int _count=0;
+        for(int i=0;i<b.length();i++){
+            if(map.get(b.charAt(i))==null) 
+                map.put(b.charAt(i),1);
+            else
+                map.put(b.charAt(i),map.get(b.charAt(i))+1);
+            if(b.charAt(i)=='_')
+                _count++;
+        }
+        if(countGreaterEqualTwo(map)){
+            if(ordered(b)){
+                return "YES";
+            }else if(_count>0){
+                return "YES";
+            }else
+                return "NO";
+        }
+        else
+            return "NO";
+    }
+    static boolean ordered(String s){
+        if(s.length()==1)
+            if(s.charAt(0)=='_')
+                return true;
+            else
+                return false;
+        if(s.charAt(0)!=s.charAt(1))
+            return false;
+        for(int i=1;i<s.length()-1;i++){
+            if((s.charAt(i)!=s.charAt(i-1))&&(s.charAt(i)!=s.charAt(i+1)))
+                return false;
+        }
+        if(s.charAt(s.length()-1)!=s.charAt(s.length()-2))
+            return false;
+        return true;
+    }
+    static boolean countGreaterEqualTwo(Map<Character,Integer> m){
+        for(Character c : m.keySet()){
+            if(c!='_'){
+                if(m.get(c)<2)
+                    return false;                
+            }
+        }
+        return true;
+    }
