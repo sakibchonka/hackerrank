@@ -1,0 +1,14 @@
+public static long strangeCounter(long t) {
+    // Write your code here
+        long start=1,end=3,value=3;
+        while(true){
+            if(start<=t && t<=end){
+                t=t-start;
+                return value-t;
+            }
+            start=end+1;
+            value=2*value;
+            end=end+value;
+        }
+
+    }
