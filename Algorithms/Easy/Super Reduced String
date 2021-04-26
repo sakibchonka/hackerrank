@@ -1,0 +1,14 @@
+if(s.isEmpty()){
+            return "Empty String";
+        }
+        int i;
+        for(i=0;i<s.length()-1;i++){
+            if(s.charAt(0)==s.charAt(1))
+                return superReducedString(s.substring(2,s.length()));
+            if(s.charAt(i)==s.charAt(i+1)){
+                return superReducedString(s.substring(0,i)+s.substring(i+2,s.length()));
+            }
+        }
+        if(i==s.length())
+            return s;
+        return s;
