@@ -1,0 +1,23 @@
+public static int marsExploration(String s) {
+    // Write your code here
+        int turn=1;
+        int error=0;
+        for(int i=0;i<s.length();i++){
+            if(turn==1){
+                if(s.charAt(i)!='S')
+                    error++;
+                turn=2;
+            }
+            else if(turn==2){
+                if(s.charAt(i)!='O')
+                    error++;
+                turn=3;
+            }
+            else if(turn==3){
+                if(s.charAt(i)!='S')
+                    error++;
+                turn=1;
+            }
+        }
+        return error;
+    }
