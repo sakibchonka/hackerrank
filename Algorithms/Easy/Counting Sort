@@ -1,0 +1,18 @@
+public static List<Integer> countingSort(List<Integer> arr) {
+    // Write your code here
+        int[] res = new int[100];
+        List<Integer> result = new ArrayList<>();
+        for(int i=0;i<arr.size();i++){
+            int index = arr.get(i);
+            res[index]++;
+        }
+        for(int i=0;i<res.length;i++){
+            if(res[i]==0)
+                continue;
+            while(res[i]>0){
+                result.add(i);
+                res[i]--;
+            }
+        }
+        return result;
+    }
