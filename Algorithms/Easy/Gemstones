@@ -1,0 +1,14 @@
+public static Set<Character> stringToSet(String s){
+        Set<Character> set = new HashSet<Character>(26);
+        for(char c : s.toCharArray())
+            set.add(Character.valueOf(c));
+        return set;
+    }
+    public static int gemstones(List<String> arr) {
+    // Write your code here
+        Set<Character> gems = stringToSet(arr.get(0));
+        for(int i=1;i<arr.size();i++){
+            gems.retainAll(stringToSet(arr.get(i)));
+        }
+        return gems.size();
+    }
