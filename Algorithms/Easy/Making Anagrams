@@ -1,0 +1,42 @@
+public static String sort(String s){
+        char[] str = s.toCharArray();
+        Arrays.sort(str);
+        return new String(str);
+    }
+    public static int makingAnagrams(String s1, String s2) {
+    // Write your code here
+        int d=0;
+        s1 = sort(s1);
+        s2 = sort(s2);
+        Stack<Character> stack1 = new Stack();
+        Stack<Character> stack2 = new Stack();
+        for(int i=0;i<s1.length();i++){
+            char c = s1.charAt(i);
+            stack1.push(c);
+        }
+        for(int i=0;i<s2.length();i++){
+            char c = s2.charAt(i);
+            stack2.push(c);
+        }
+        while(!stack1.empty() && !stack2.empty()){
+            if(stack1.peek()==stack2.peek()){
+                stack1.pop();
+                stack2.pop();
+            }
+            else if(stack1.peek()>stack2.peek()){
+                stack1.pop();
+                d++;
+            }
+            else if(stack1.peek()<stack2.peek()){
+                stack2.pop();
+                d++;
+            }
+        }
+        if(!stack1.empty()){
+            d=d+stack1.size();
+        }
+        else if(!stack2.empty()){
+            d=d+stack2.size();
+        }
+        return d;
+    }
